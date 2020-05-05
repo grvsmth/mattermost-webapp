@@ -313,7 +313,7 @@ body {
             @include border-radius(2px);
             color: $white;
             display: block;
-            height: 40px;
+            height: 100px;
             margin: 1em 0;
             min-width: 200px;
             padding: 0 24px;
@@ -333,14 +333,14 @@ body {
             }
 
             &.gitlab {
-                background: #554488;
+                background: #4caf50;
 
                 &:hover {
-                    background: darken(#554488, 10%);
+                    background: darken(#4caf50, 10%);
                 }
 
                 .icon {
-                    background-image: url('../images/gitlabLogo.png');
+                    background-image: url('../images/TNS_Logo3_Small_RGB.jpg');
                 }
             }
 

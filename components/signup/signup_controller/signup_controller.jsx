@@ -184,7 +184,7 @@ export default class SignupController extends React.Component {
                         <span>
                             <FormattedMessage
                                 id='signup.gitlab'
-                                defaultMessage='GitLab Single Sign-On'
+                                defaultMessage='NetID Single Sign-On'
                             />
                         </span>
                     </span>

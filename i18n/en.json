@@ -190,7 +190,7 @@
   "admin.advance.metrics": "Performance Monitoring",
   "admin.audits.reload": "Reload User Activity Logs",
   "admin.authentication.email": "Email Authentication",
-  "admin.authentication.gitlab": "GitLab",
+  "admin.authentication.gitlab": "NetID",
   "admin.authentication.guest_access": "Guest Access (Beta)",
   "admin.authentication.ldap": "AD/LDAP",
   "admin.authentication.mfa": "Multi-factor Authentication",
