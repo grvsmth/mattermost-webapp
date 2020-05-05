@@ -537,6 +537,51 @@ class LoginController extends React.Component {
         const usernameSigninEnabled = this.state.usernameSigninEnabled;
         const emailSigninEnabled = this.state.emailSigninEnabled;
 
+        if ((emailSigninEnabled || usernameSigninEnabled || ldapEnabled) && (gitlabSigninEnabled || googleSigninEnabled || samlSigninEnabled || office365SigninEnabled)) {
+            loginControls.push(
+                <h5 key='oauthHeader'>
+                    <FormattedMessage
+                        id='login.signInWith'
+                        defaultMessage='Sign in with:'
+                    />
+                </h5>
+            );
+        }
+
+        if (gitlabSigninEnabled) {
+            loginControls.push(
+                <a
+                    className='btn btn-custom-login gitlab'
+                    key='gitlab'
+                    href={Client4.getOAuthRoute() + '/gitlab/login' + this.props.location.search}
+                >
+                    <span>
+                        <span className='icon'/>
+                        <span>
+                            <FormattedMessage
+                                id='login.gitlab'
+                                defaultMessage='GitLab'
+                            />
+                        </span>
+                    </span>
+                </a>
+            );
+        }
+
+        if (usernameSigninEnabled || emailSigninEnabled) {
+            loginControls.push(
+                <div
+                    key='divider'
+                    className='or__container'
+                >
+                    <FormattedMessage
+                        id='login.or'
+                        defaultMessage='or'
+                    />
+                </div>
+            );
+        }
+
         if (emailSigninEnabled || usernameSigninEnabled || ldapEnabled) {
             let errorClass = '';
             if (this.state.serverError) {
@@ -627,9 +672,7 @@ class LoginController extends React.Component {
                     </span>
                 </div>
             );
-        }
 
-        if (usernameSigninEnabled || emailSigninEnabled) {
             loginControls.push(
                 <div
                     id='login_forgot'
@@ -643,49 +686,6 @@ class LoginController extends React.Component {
                         />
                     </Link>
                 </div>
-            );
-        }
-
-        if ((emailSigninEnabled || usernameSigninEnabled || ldapEnabled) && (gitlabSigninEnabled || googleSigninEnabled || samlSigninEnabled || office365SigninEnabled)) {
-            loginControls.push(
-                <div
-                    key='divider'
-                    className='or__container'
-                >
-                    <FormattedMessage
-                        id='login.or'
-                        defaultMessage='or'
-                    />
-                </div>
-            );
-
-            loginControls.push(
-                <h5 key='oauthHeader'>
-                    <FormattedMessage
-                        id='login.signInWith'
-                        defaultMessage='Sign in with:'
-                    />
-                </h5>
-            );
-        }
-
-        if (gitlabSigninEnabled) {
-            loginControls.push(
-                <a
-                    className='btn btn-custom-login gitlab'
-                    key='gitlab'
-                    href={Client4.getOAuthRoute() + '/gitlab/login' + this.props.location.search}
-                >
-                    <span>
-                        <span className='icon'/>
-                        <span>
-                            <FormattedMessage
-                                id='login.gitlab'
-                                defaultMessage='GitLab'
-                            />
-                        </span>
-                    </span>
-                </a>
             );
         }
 
