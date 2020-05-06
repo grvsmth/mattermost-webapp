@@ -556,7 +556,6 @@ class LoginController extends React.Component {
                     href={Client4.getOAuthRoute() + '/gitlab/login' + this.props.location.search}
                 >
                     <span>
-                        <span className='icon'/>
                         <span>
                             <FormattedMessage
                                 id='login.gitlab'
